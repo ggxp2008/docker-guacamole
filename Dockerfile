@@ -123,8 +123,9 @@ RUN tar xvf /tmp/ssh-forward.tar.gz -C /bin/ && chmod +x /bin/ssh-forward
 
 RUN cd /tmp/ && \
     git clone https://github.com/ggxp2008/docker-guacamole.git && \
+    ls /tmp/docker-guacamole && \
     cd /tmp/docker-guacamole && \
-    tar -xzf guacamole-client-${JMS_VERSION}.tar.gz \
+    tar -xvf guacamole-client-${JMS_VERSION}.tar.gz \
     && cp guacamole-client-${JMS_VERSION}/guacamole-*.war ${CATALINA_HOME}/webapps/ROOT.war \
     && cp guacamole-client-${JMS_VERSION}/guacamole-*.jar ${GUACAMOLE_HOME}/extensions/ \
     && rm -rf /tmp/guacamole-client-${JMS_VERSION}.tar.gz guacamole-client-${JMS_VERSION} /tmp/docker-guacamole
