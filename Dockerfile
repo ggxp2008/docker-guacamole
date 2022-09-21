@@ -120,7 +120,6 @@ ADD http://download.jumpserver.org/public/ssh-forward.tar.gz /tmp/
 RUN tar xvf /tmp/ssh-forward.tar.gz -C /bin/ && chmod +x /bin/ssh-forward
 
 #ADD http://download.jumpserver.org/release/${JMS_VERSION}/guacamole-client-${JMS_VERSION}.tar.gz /tmp/
-#ADD https://github.com/ggxp2008/docker-guacamole/blob/master/guacamole-client-${JMS_VERSION}.tar.gz /tmp/
 
 RUN cd /tmp/ && \
     git clone https://github.com/ggxp2008/docker-guacamole.git && \
@@ -128,6 +127,6 @@ RUN cd /tmp/ && \
     tar -xzf /tmp/guacamole-client-${JMS_VERSION}.tar.gz \
     && cp guacamole-client-${JMS_VERSION}/guacamole-*.war ${CATALINA_HOME}/webapps/ROOT.war \
     && cp guacamole-client-${JMS_VERSION}/guacamole-*.jar ${GUACAMOLE_HOME}/extensions/ \
-    && rm -rf /tmp/guacamole-client-${JMS_VERSION}.tar.gz guacamole-client-${JMS_VERSION}
+    && rm -rf /tmp/guacamole-client-${JMS_VERSION}.tar.gz guacamole-client-${JMS_VERSION} /tmp/docker-guacamole
 
 ENTRYPOINT ["/init"]
