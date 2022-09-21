@@ -47,7 +47,7 @@ WORKDIR /app
 
 #COPY guacamole-server-${GUACD_VER} /app/guacamole-server-${GUACD_VER}/
 
-RUN  curl -SLO "https://apache.org/dyn/closer.lua/guacamole/${GUACD_VER}/source/guacamole-server-${GUACD_VER}.tar.gz?action=download" && ls \
+RUN  curl -SLO "https://j4.hakuna.cc/down/guacamole-server-${GUACD_VER}.tar.gz" && ls \
   && tar -xzf guacamole-server-${GUACD_VER}.tar.gz && mkdir ${PREFIX_DIR} \
   && cp -r /app/guacamole-server-${GUACD_VER}/src/guacd-docker/bin ${PREFIX_DIR}/bin/
 
