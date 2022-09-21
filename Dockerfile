@@ -36,7 +36,7 @@ ARG BUILD_DEPENDENCIES="              \
         libwebp-dev                   \
         make"
 
-COPY resolv.conf /etc/resolv.conf
+#COPY resolv.conf /etc/resolv.conf
 # Bring build environment up to date and install build dependencies
 RUN apt-get update -y && \
     apt-get install $BUILD_DEPENDENCIES -y && \
